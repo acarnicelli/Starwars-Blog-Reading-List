@@ -13,7 +13,7 @@ export const Home = () => {
 				<h2 style={{ color: "red" }}>Characters</h2>
 				<div className="text-center mt-5 d-flex">
 					{store.people.map((item, index) => {
-						return <Cards item={item} key={index} tipo="people" />;
+						return <Cards item={item} key={index} id={index} tipo="people" />;
 					})}
 				</div>
 			</div>
@@ -22,7 +22,7 @@ export const Home = () => {
 				<h2 style={{ color: "red" }}>Planets</h2>
 				<div className="text-center mt-5 d-flex">
 					{store.planets.map((item, index) => {
-						return <Cards item={item} key={index} tipo="planets" />;
+						return <Cards item={item} key={index} id={index} tipo="planets" />;
 					})}
 				</div>
 			</div>

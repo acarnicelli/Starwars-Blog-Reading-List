@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/cards.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Cards = props => {
 	return (
@@ -26,18 +27,24 @@ const Cards = props => {
 						</ul>
 					</p>
 
-					<a href="#" className="btn btn-primary">
-						Learn More!
-					</a>
+					{props.tipo == "people" ? (
+						<Link to={"/people/" + props.id} className="btn btn-primary">
+							<span>Learn More!</span>
+						</Link>
+					) : (
+						<Link to={"/planets/" + props.id} className="btn btn-primary">
+							<span>Learn More!</span>
+						</Link>
+					)}
 				</div>
-			</div>
+			</div>``
 		</div>
 	);
 };
 
 Cards.propTypes = {
 	item: PropTypes.object,
-	key: PropTypes.number,
+	id: PropTypes.number,
 	tipo: PropTypes.string
 };
 

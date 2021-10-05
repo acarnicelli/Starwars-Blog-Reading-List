@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import Details from "./views/details";
 
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
@@ -17,7 +18,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="container">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -25,12 +26,28 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+
+
+
+
+						{/* Que pase 'people' o 'planets' por la url en 1 solo */}
+						<Route exact path="/people/:id">
+							<Details />
+						</Route>
+
+						<Route exact path="/planets/:id">
+							<Details />
+						</Route>
+						{/* ------------------ */}
+						
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
