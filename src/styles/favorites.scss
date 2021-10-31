@@ -1,0 +1,14 @@
+.cruzContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cruz {
+    color: gray;
+}
+
+.cruz:hover {
+    cursor: pointer;
+    color: rgb(236, 93, 117);
+}

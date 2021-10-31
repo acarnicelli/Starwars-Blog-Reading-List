@@ -1,11 +1,25 @@
-ul{
-    list-style-type: none;
-}
-
-li {
-    text-align: left;
-}
-
 h5 {
     text-align: left;
+}
+
+.card {
+    margin-bottom: 25px;
+}
+
+.detalles {
+    text-align: left
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn {
+    margin-top: 15px;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
 }

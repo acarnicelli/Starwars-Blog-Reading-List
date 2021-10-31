@@ -9,18 +9,18 @@ export const Home = () => {
 
 	return (
 		<div>
-			<div>
-				<h2 style={{ color: "red" }}>Characters</h2>
-				<div className="text-center mt-5 d-flex">
+			<div className="container">
+				<h2>Characters</h2>
+				<div className="row">
 					{store.people.map((item, index) => {
 						return <Cards item={item} key={index} id={index} tipo="people" />;
 					})}
 				</div>
 			</div>
 			<br />
-			<div>
-				<h2 style={{ color: "red" }}>Planets</h2>
-				<div className="text-center mt-5 d-flex">
+			<div className="container">
+				<h2>Planets</h2>
+				<div className="row">
 					{store.planets.map((item, index) => {
 						return <Cards item={item} key={index} id={index} tipo="planets" />;
 					})}

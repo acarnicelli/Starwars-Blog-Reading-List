@@ -2,7 +2,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
-			planets: []
+			planets: [],
+			favList: [],
+			indexHover: -1
 		},
 		actions: {
 			getData: () => {
@@ -14,6 +16,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.error(err));
+			},
+
+			addFav: (nombre, tipo, id) => {
+				setStore({
+					favList: [...getStore().favList, { name: nombre, tipo: tipo, id: id }]
+				});
+			},
+			//Para el botón de eliminar
+			setIndexHover: index => {
+				setStore({ indexHover: index });
+			},
+
+			removeFav: index => {
+				let newFavList = getStore().favList.filter(element => element != getStore().favList[index]);
+				setStore({ favList: newFavList });
+			},
+
+			setFav: (nombre, tipo, id) => {
+				if (getStore().favList.some(value => value.name == nombre)) {
+					//Busco el elemento que corresponda en el favList y obtengo el index para borrarlo.
+					let idInFavArray = getStore().favList.findIndex(elem => elem.name == nombre);
+					getActions().removeFav(idInFavArray);
+				} else {
+					getActions().addFav(nombre, tipo, id);
+				}
 			}
 		}
 	};

@@ -35,24 +35,14 @@ const Layout = () => {
 							<Single />
 						</Route>
 
-
-
-
-						{/* Que pase 'people' o 'planets' por la url en 1 solo */}
-						<Route exact path="/people/:id">
+						<Route exact path="/:tipo/:id">
 							<Details />
 						</Route>
 
-						<Route exact path="/planets/:id">
-							<Details />
-						</Route>
-						{/* ------------------ */}
-						
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
